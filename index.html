@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="lib/codemirror.css">
         <link rel="stylesheet" href="lib/dracula.css">
         <link rel="stylesheet" href="lib/show-hint.css">
+        <link rel="stylesheet" href="lib/simplescrollbars.css">
         <style type="text/css">
             html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; }
             .box {
@@ -25,6 +26,7 @@
         <script src="lib/html-hint.js"></script>
         <script src="lib/closebrackets.js"></script>
         <script src="lib/closetag.js"></script>
+        <script src="lib/simplescrollbars.js"></script>
         <script type="text/javascript">
             window.onload = function() {
                 var editor = CodeMirror.fromTextArea(document.querySelector(".codearea"), {
@@ -35,6 +37,7 @@
                     autoCloseBrackets: true,
                     autoCloseTags: true,
                     mode: "htmlmixed",
+                    scrollbarStyle: "overlay",
                     theme: "dracula"
                   });
                 editor.setSize("100%", "100%")
