@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auto deloy HTML IDE</title>
+        <link rel="stylesheet" href="lib/codemirror.css">
+        <link rel="stylesheet" href="lib/dracula.css">
+        <link rel="stylesheet" href="lib/show-hint.css">
+        <style type="text/css">
+            html,body { height: 100%; margin: 0px; padding: 0px; }
+            .box {
+                display: flex;
+                flex-flow: column;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="lib/codemirror.js"></script>
+        <script src="lib/xml.js"></script>
+        <script src="lib/javascript.js"></script>
+        <script src="lib/css.js"></script>
+        <script src="lib/htmlmixed.js"></script>
+        <script src="lib/show-hint.js"></script>
+        <script src="lib/xml-hint.js"></script>
+        <script src="lib/html-hint.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var editor = CodeMirror.fromTextArea(document.querySelector(".codearea"), {
+                    lineNumbers: true,
+                    lineWrapping: true,
+                    styleActiveLine: true,
+                    matchBrackets: true,
+                    mode: "htmlmixed",
+                    theme: "dracula"
+                  });
+                editor.setSize("100%", "100%")
+                editor.on("change", function(e) {
+                    document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
+                    document.querySelector(".ide").contentDocument.body.style.wordWrap = 'break-word'
+                })
+                editor.on("inputRead", function(instance) {
+                    if (instance.state.completionActive) {
+                            return;
+                    }
+                    var cur = instance.getCursor();
+                    var token = instance.getTokenAt(cur);
+                    if (token.type && token.type != "comment") {
+                            CodeMirror.commands.autocomplete(instance);
+                    }
+                });
+            }
+        </script>
+        <div class="box">
+            <textarea class="codearea"></textarea>
+            <div style="display: inline-block; height: 100%; border:1px solid black;">
+                <iframe class="ide" frameborder="0" allowfullscreen="true" style="width: 100%; height: 100%; display: inline-block;"></iframe>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
