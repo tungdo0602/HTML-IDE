@@ -23,6 +23,7 @@
         <script src="lib/show-hint.js"></script>
         <script src="lib/xml-hint.js"></script>
         <script src="lib/html-hint.js"></script>
+        <script src="lib/closebrackets.js"></script>
         <script type="text/javascript">
             window.onload = function() {
                 var editor = CodeMirror.fromTextArea(document.querySelector(".codearea"), {
@@ -30,6 +31,7 @@
                     lineWrapping: true,
                     styleActiveLine: true,
                     matchBrackets: true,
+                    autoCloseBrackets: true,
                     mode: "htmlmixed",
                     theme: "dracula"
                   });
