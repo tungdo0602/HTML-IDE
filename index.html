@@ -29,7 +29,20 @@
         <script src="lib/closetag.js"></script>
         <script src="lib/simplescrollbars.js"></script>
         <script type="text/javascript">
+            var isHide = false
             window.onload = function() {
+                $(document).on("keydown",function(ev){
+                    if(ev.keyCode===122) {
+                        if(isHide === false) {
+                            document.querySelector(".CodeMirror").style.display="none"
+                            isHide = true
+                        } else {
+                            document.querySelector(".CodeMirror").style.display="block"
+                            isHide = false
+                        }
+                        return false
+                    }
+                })
                 var editor = CodeMirror.fromTextArea(document.querySelector(".codearea"), {
                     lineNumbers: true,
                     lineWrapping: true,
