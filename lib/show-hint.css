@@ -4,33 +4,45 @@
   overflow: hidden;
   list-style: none;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
   margin: 0;
   padding: 2px;
 
   -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
   -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
-  box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  /*box-shadow: 2px 3px 5px rgba(0,0,0,.2);*/
   border-radius: 3px;
-  border: 1px solid silver;
+  /*border: 1px solid silver;*/
 
-  background: white;
+  /*background: white;*/
   font-size: 90%;
   font-family: monospace;
 
   max-height: 20em;
   overflow-y: auto;
+
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
 }
 
 .CodeMirror-hint {
   margin: 0;
   padding: 0 4px;
-  border-radius: 2px;
+  border-radius: 5px;
   white-space: pre;
-  color: black;
+  color: rgb(255, 255, 255);
   cursor: pointer;
+}
+
+.CodeMirror-hints::-webkit-scrollbar {
+  display: none;
 }
 
 li.CodeMirror-hint-active {
   background: #08f;
-  color: white;
+  color: rgb(0, 0, 0);
 }
