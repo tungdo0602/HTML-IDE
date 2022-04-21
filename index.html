@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="lib/dracula.css">
         <link rel="stylesheet" href="lib/show-hint.css">
         <link rel="stylesheet" href="lib/simplescrollbars.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <style type="text/css">
             html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; }
             .box {
@@ -31,7 +30,7 @@
         <script type="text/javascript">
             var isHide = false
             window.onload = function() {
-                $(document).on("keydown",function(ev){
+                document.onkeydown = function(ev){
                     if(ev.keyCode===122) {
                         if(isHide === false) {
                             document.querySelector(".CodeMirror").style.display="none"
@@ -42,7 +41,19 @@
                         }
                         return false
                     }
-                })
+                }
+                document.querySelector(".ide").contentDocument.onkeydown = function(ev){
+                    if(ev.keyCode===122) {
+                        if(isHide === false) {
+                            document.querySelector(".CodeMirror").style.display="none"
+                            isHide = true
+                        } else {
+                            document.querySelector(".CodeMirror").style.display="block"
+                            isHide = false
+                        }
+                        return false
+                    }
+                }
                 var editor = CodeMirror.fromTextArea(document.querySelector(".codearea"), {
                     lineNumbers: true,
                     lineWrapping: true,
