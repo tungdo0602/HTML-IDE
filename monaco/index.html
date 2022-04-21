@@ -54,6 +54,7 @@ require(["vs/editor/editor.main"], function () {
 		language: 'html',
 		theme: 'vs-dark'
 	})
+    document.querySelector(".ide").contentDocument.documentElement.innerHTML = editor.getValue()
     editor.onDidChangeModelContent(function (){
         document.querySelector(".ide").contentDocument.documentElement.innerHTML = editor.getValue()
         document.querySelector(".ide").contentDocument.body.style.wordWrap = 'break-word'
