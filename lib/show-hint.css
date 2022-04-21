@@ -11,7 +11,7 @@
   padding: 2px;
 
   -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
-  -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  -moz-box-shadow: 2px 3px 5px hwb(0 0% 100% / 0.2);
   /*box-shadow: 2px 3px 5px rgba(0,0,0,.2);*/
   border-radius: 3px;
   /*border: 1px solid silver;*/
@@ -22,11 +22,9 @@
 
   max-height: 20em;
   overflow-y: auto;
-
-  background: rgba(255, 255, 255, 0);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
+  
+  box-shadow: 0 4px 30px #282a36;
+  background-color: #282a36;
 }
 
 .CodeMirror-hint {
@@ -36,6 +34,7 @@
   white-space: pre;
   color: rgb(255, 255, 255);
   cursor: pointer;
+  background-color: #282a36;
 }
 
 .CodeMirror-hints::-webkit-scrollbar {
