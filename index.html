@@ -75,7 +75,7 @@
     </body>
 </html>`)
                 editor.setSize("100%", "100%")
-                document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
+                document.querySelector(".ide").contentDocument.documentElement.innerHTML = editor.getValue()
                 editor.on("change", function(e) {
                     document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
                 })
