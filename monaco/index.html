@@ -4,7 +4,7 @@
         <title>HTML Ide</title>
         <style>
             html, body{
-                position: absolute;
+                position: fixed;
                 left: 0;
                 top: 0;
                 width: 100%;
@@ -25,6 +25,33 @@
             <iframe class="ide" frameborder="0" allowfullscreen="true" style="width: 100%; height: 100%; display: inline-block;"></iframe>
         </div>
         <script>
+            window.onload = function() {
+                var isHide = false
+                document.onkeydown = function(ev){
+                    if(ev.keyCode===122) {
+                        if(isHide === false) {
+                            document.querySelector(".editor").style.display="none"
+                            isHide = true
+                        } else {
+                            document.querySelector(".editor").style.display="block"
+                            isHide = false
+                        }
+                        return false
+                    }
+                }
+                document.querySelector(".ide").contentDocument.onkeydown = function(ev){
+                    if(ev.keyCode===122) {
+                        if(isHide === false) {
+                            document.querySelector(".editor").style.display="none"
+                            isHide = true
+                        } else {
+                            document.querySelector(".editor").style.display="block"
+                            isHide = false
+                        }
+                        return false
+                    }
+                }
+            }
 require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' }});
 window.MonacoEnvironment = { getWorkerUrl: () => proxy };
 
