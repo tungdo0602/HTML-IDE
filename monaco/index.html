@@ -64,9 +64,7 @@ var proxy = URL.createObjectURL(new Blob([`
 
 require(["vs/editor/editor.main"], function () {
 	var editor = monaco.editor.create(document.querySelector('.editor'), {
-		value: [
-			`
-<!DOCTYPE html>
+		value: [`<!DOCTYPE html>
 <html>
     <head>
         <title>Hello</title>
