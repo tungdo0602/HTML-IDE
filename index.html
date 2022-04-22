@@ -65,6 +65,15 @@
                     scrollbarStyle: "overlay",
                     theme: "dracula"
                   });
+                editor.getDoc().setValue(`<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>
+        <p>Hello World!</p>
+    </body>
+</html>`)
                 editor.setSize("100%", "100%")
                 editor.on("change", function(e) {
                     document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
