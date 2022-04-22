@@ -75,9 +75,9 @@
     </body>
 </html>`)
                 editor.setSize("100%", "100%")
+                document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
                 editor.on("change", function(e) {
                     document.querySelector(".ide").contentDocument.documentElement.innerHTML = e.getValue()
-                    document.querySelector(".ide").contentDocument.body.style.wordWrap = 'break-word'
                 })
                 editor.on("inputRead", function(instance) {
                     if (instance.state.completionActive) {
